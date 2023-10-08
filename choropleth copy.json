@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Intentional Homicide Cases in Malaysian States",
+  "width": "container",
+  "height": 250,
+  "data": {
+    "url": "https://raw.githubusercontent.com/sngg0074/HomeworkWK10/main/13.6.12_Number%20of%20intentional%20homicide%20cases%20by%20state%20-%20Malaysia%20-%202014%E2%80%932021_dataset.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "State", "type": "nominal"},
+    "y": {"field": "Number of Cases", "type": "quantitative","scale": {"domain": [0, 200]}},
+    "color": {"field": "Intentional homicide cases", "type": "nominal"}
+  },
+  "transform": [
+    {"filter": "datum.Year==year_slider"},
+    {"calculate": "if(datum['Intentional homicide cases'] === 'Solving case', 'Total cases', 'Solved')", "as": "Intentional Homicide Case Type"}
+  ],
+  "params": [
+    {
+      "name": "year_slider",
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2021,
+        "step": 1,
+        "name": "Select the Year:"
+      },
+      "value": 2014  
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}}
+}
