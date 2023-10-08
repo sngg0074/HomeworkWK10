@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Unemployment Rate throughout Malaysia from 2002 to 2020",
+    "title": "Incidence of Poverty throughout Malaysia from 2002 to 2020",
     "width": "container",
     "height": 250,
     "data": {
